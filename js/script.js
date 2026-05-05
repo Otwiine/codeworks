@@ -1,48 +1,39 @@
 // ============================================================
-// Cworks — Main Site Script
+// Cworks — script.js v3
 // ============================================================
 document.addEventListener('DOMContentLoaded', function () {
 
-  // ----------------------------------------------------------
-  // 0. AUTO YEAR IN FOOTER
-  // ----------------------------------------------------------
+  // 0. AUTO YEAR
   document.querySelectorAll('.footer-year').forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
 
-  // ----------------------------------------------------------
   // 1. STICKY NAVBAR
-  // ----------------------------------------------------------
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', function () {
-    navbar.classList.toggle('scrolled', window.scrollY > 20);
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 
-
-  // ----------------------------------------------------------
-  // 2. MOBILE MENU TOGGLE
-  // ----------------------------------------------------------
+  // 2. MOBILE MENU
   const hamburger  = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
 
-  hamburger.addEventListener('click', function () {
-    const isOpen = mobileMenu.classList.toggle('open');
-    hamburger.classList.toggle('active', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen);
-  });
-
-  mobileMenu.querySelectorAll('.nav-link').forEach(function (link) {
-    link.addEventListener('click', function () {
-      mobileMenu.classList.remove('open');
-      hamburger.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function () {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('active', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
     });
-  });
+    mobileMenu.querySelectorAll('.nav-link, .btn-primary').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 
-
-  // ----------------------------------------------------------
-  // 3. TYPING ANIMATION
-  // ----------------------------------------------------------
+  // 3. TYPING ANIMATION (service pages only)
   const typingPhraseMap = {
     'ui-ux-design.html':        'Beautiful and functional.',
     'web-development.html':     'From idea to live website.',
@@ -52,75 +43,57 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   const currentPage  = window.location.pathname.split('/').pop();
-  const typingPhrase = window._typingOverride
-    || typingPhraseMap[currentPage]
-    || 'Digital Solutions That Work.';
-
+  const typingPhrase = window._typingOverride || typingPhraseMap[currentPage];
   const typingTarget = document.getElementById('typing-text');
 
-  if (typingTarget) {
+  if (typingTarget && typingPhrase) {
     let charIndex = 0;
-
     function type() {
       if (charIndex <= typingPhrase.length) {
         typingTarget.textContent = typingPhrase.slice(0, charIndex);
         charIndex++;
         setTimeout(type, 75);
       }
-      // done — cursor keeps blinking via CSS, no loop
     }
-
     type();
   }
 
-
-  // ----------------------------------------------------------
   // 4. SCROLL REVEAL
-  // ----------------------------------------------------------
-  const revealElements = document.querySelectorAll('.reveal');
-
-  const observer = new IntersectionObserver(function (entries) {
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        revealObs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  revealElements.forEach(function (el) { observer.observe(el); });
-
+  revealEls.forEach(function (el) { revealObs.observe(el); });
   if (!('IntersectionObserver' in window)) {
-    revealElements.forEach(function (el) { el.classList.add('visible'); });
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
   }
 
-
-  // ----------------------------------------------------------
-  // 5. ACTIVE NAV HIGHLIGHTING
-  // ----------------------------------------------------------
+  // 5. ACTIVE NAV
   const sections = document.querySelectorAll('section[id]');
-  const navItems = document.querySelectorAll('.nav-links .nav-link');
-
-  const sectionObserver = new IntersectionObserver(function (entries) {
+  const navLinks = document.querySelectorAll('.nav-links .nav-link');
+  const secObs   = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
-        navItems.forEach(function (link) { link.classList.remove('active'); });
-        const activeLink = document.querySelector(
-          '.nav-links a[href="#' + entry.target.id + '"], .nav-links a[href$="#' + entry.target.id + '"]'
+        navLinks.forEach(function (l) { l.classList.remove('active'); });
+        const active = document.querySelector(
+          '.nav-links a[href="#' + entry.target.id + '"],' +
+          '.nav-links a[href$="#' + entry.target.id + '"]'
         );
-        if (activeLink) activeLink.classList.add('active');
+        if (active) active.classList.add('active');
       }
     });
   }, { threshold: 0.4 });
-
-  sections.forEach(function (section) { sectionObserver.observe(section); });
+  sections.forEach(function (s) { secObs.observe(s); });
 
 }); // end DOMContentLoaded
 
-
-// ----------------------------------------------------------
-// 6. CONTACT FORM — Web3Forms + Discord webhook
-// ----------------------------------------------------------
+// ── CONTACT FORM ─────────────────────────────────────────────
 (function () {
   const form      = document.getElementById('contact-form');
   if (!form) return;
@@ -151,13 +124,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!emailInput) return true;
     const val = emailInput.value.trim();
     const ok  = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-    if (!val) {
-      if (emailError) emailError.textContent = 'Please enter your email address.';
-      emailInput.classList.add('input-error');
-      return false;
-    }
-    if (!ok) {
-      if (emailError) emailError.textContent = 'Please enter a valid email address.';
+    if (!val || !ok) {
+      if (emailError) emailError.textContent = !val ? 'Please enter your email.' : 'Please enter a valid email.';
       emailInput.classList.add('input-error');
       return false;
     }
@@ -197,33 +165,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
+    const ok = validateName() & validateEmail() & validatePhone() & validateTier();
+    if (!ok) return;
 
-    const nameOk  = validateName();
-    const emailOk = validateEmail();
-    const phoneOk = validatePhone();
-    const tierOk  = validateTier();
-    if (!nameOk || !emailOk || !phoneOk || !tierOk) return;
-
-    const originalHTML  = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Sending...';
+    const orig          = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
     submitBtn.disabled  = true;
     feedback.hidden     = true;
     feedback.className  = 'form-feedback';
 
     try {
-      const formData = new FormData(form);
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body:   formData
-      });
-      const data = await response.json();
+      const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) });
+      const data = await res.json();
 
-      if (response.ok) {
+      if (res.ok) {
         const name    = nameInput  ? nameInput.value.trim()  : 'N/A';
         const email   = emailInput ? emailInput.value.trim() : 'N/A';
         const phone   = phoneInput ? phoneInput.value.trim() : 'N/A';
         const tier    = tierSelect ? tierSelect.value        : 'N/A';
-        const message = form.querySelector('textarea') ? form.querySelector('textarea').value.trim() : 'N/A';
+        const msg     = form.querySelector('textarea') ? form.querySelector('textarea').value.trim() : 'N/A';
 
         await fetch('https://discord.com/api/webhooks/1493186929200730232/FEOmFACU4P64xHDYXEieG20kWcHU306K0qlwxspmWnumiJg9VmjxMMXC1oc7inaJst_7', {
           method: 'POST',
@@ -235,13 +195,13 @@ document.addEventListener('DOMContentLoaded', function () {
               title:  '📬 New Contact Form Submission',
               color:  0x0d9488,
               fields: [
-                { name: '👤 Name',         value: name,    inline: true  },
-                { name: '📧 Email',        value: email,   inline: true  },
-                { name: '📞 Phone',        value: phone,   inline: true  },
-                { name: '🎯 Service Tier', value: tier,    inline: true  },
-                { name: '💬 Message',      value: message, inline: false }
+                { name: '👤 Name',         value: name,  inline: true },
+                { name: '📧 Email',        value: email, inline: true },
+                { name: '📞 Phone',        value: phone, inline: true },
+                { name: '🎯 Service Tier', value: tier,  inline: true },
+                { name: '💬 Message',      value: msg,   inline: false }
               ],
-              footer:    { text: 'Sent from Cworks website' },
+              footer:    { text: 'Sent from cworks website' },
               timestamp: new Date().toISOString()
             }]
           })
@@ -251,21 +211,16 @@ document.addEventListener('DOMContentLoaded', function () {
         feedback.classList.add('form-feedback--success');
         feedback.hidden = false;
         form.reset();
-        if (nameError)  nameError.textContent  = '';
-        if (emailError) emailError.textContent = '';
-        if (phoneError) phoneError.textContent = '';
-        if (tierError)  tierError.textContent  = '';
+        [nameError, emailError, phoneError, tierError].forEach(function (el) { if (el) el.textContent = ''; });
       } else {
-        feedback.textContent = '✗ ' + (data.message || 'Something went wrong. Please try again.');
-        feedback.classList.add('form-feedback--error');
-        feedback.hidden = false;
+        throw new Error(data.message || 'Submission failed');
       }
     } catch (err) {
-      feedback.textContent = '✗ Network error. Please check your connection and try again.';
+      feedback.textContent = '✗ ' + (err.message || 'Network error. Please try again.');
       feedback.classList.add('form-feedback--error');
       feedback.hidden = false;
     } finally {
-      submitBtn.innerHTML = originalHTML;
+      submitBtn.innerHTML = orig;
       submitBtn.disabled  = false;
     }
   });
