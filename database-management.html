@@ -29,7 +29,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="css/styles.css"/>
 </head>
@@ -40,7 +40,7 @@
   <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo" aria-label="Cworks home">
-        <span class="nav-logo-icon" aria-hidden="true"><img src="CodeHub.png" alt="Cworks" class="nav-logo-img"/></span>
+        <span class="nav-logo-mark"><img src="CodeHub.png" alt="Cworks"/></span>
         Cworks
       </a>
       <ul class="nav-links" role="list">
@@ -66,9 +66,9 @@
 
   <!-- HERO -->
   <section class="hero" id="hero" aria-label="Database Management service">
-    <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
-    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
-    <div class="hero-grid-overlay" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-orb orb-1" aria-hidden="true"></div>
+  <div class="hero-orb orb-2" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge" aria-hidden="true">
@@ -152,7 +152,7 @@
 
 
   <!-- PROCESS -->
-  <section class="section process-section" id="process" aria-label="Our process">
+  <section class="section process-section has-grid" id="process" aria-label="Our process">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">// how it works</span>
@@ -254,7 +254,7 @@
 
 
   <!-- CONTACT -->
-  <section class="section contact" id="contact" aria-label="Get in touch">
+  <section class="section contact has-grid bg-1-section" id="contact" aria-label="Get in touch">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">// ready to structure your data?</span>
@@ -349,27 +349,33 @@
 
   <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-inner">
-        <div>
-          <a href="index.html" class="footer-logo-link">
-            <span class="footer-logo-icon"><i class="fa-solid fa-code" style="color:#fff;font-size:0.75rem;"></i></span>
-            Cworks
-          </a>
-          <p class="footer-tagline">Building digital solutions from.</p>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo-wrap">
+          <span class="footer-logo-icon"><img src="CodeHub.png" alt="Cworks"/></span>
+          Cworks
         </div>
-        <nav aria-label="Footer navigation">
-          <ul class="footer-links" role="list">
-            <li><a href="#includes" class="footer-link">What's Included</a></li>
-            <li><a href="#process"  class="footer-link">Our Process</a></li>
-            <li><a href="#pricing"  class="footer-link">Pricing</a></li>
-            <li><a href="#contact"  class="footer-link">Get in Touch</a></li>
-          </ul>
-        </nav>
+        <p class="footer-tagline">Building digital products that work.</p>
       </div>
-      <p class="footer-copy">© <span class="footer-year"></span> Cworks &nbsp;·&nbsp; <a href="index.html" style="color:var(--accent-light);">← Back to Cworks</a></p>
+      <nav aria-label="Footer navigation">
+        <div class="footer-nav">
+          <a href="#includes" class="footer-link">What's Included</a>
+          <a href="#process" class="footer-link">Process</a>
+          <a href="#pricing" class="footer-link">Pricing</a>
+          <a href="#contact" class="footer-link">Contact</a>
+        </div>
+      </nav>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <p class="footer-copy">© <span class="footer-year"></span> Cworks &nbsp;·&nbsp; <a href="index.html" style="color:var(--teal);">← Back to Cworks</a></p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/cworks26/" class="footer-social" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/company/cworks26/" class="footer-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
 
   <script src="js/script.js"></script>
 </body>
