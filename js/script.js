@@ -1,6 +1,112 @@
 // ============================================================
 // Cworks — script.js v3
 // ============================================================
+
+// ── AURORA EFFECT ─────────────────────────────────────────────
+// Renders on hero canvas + any .section-aurora canvas elements.
+// Uses screen blending so blobs add colour without blocking text.
+(function () {
+  // Brand palette
+  const TEAL   = { r: 45,  g: 212, b: 191 }; // #2dd4bf
+  const MID    = { r: 13,  g: 24,  b: 37  }; // #0d1825 shifted lighter
+  const DARK   = { r: 8,   g: 15,  b: 24  }; // #080f18
+
+  // Blob templates — cloned + seeded per canvas
+  const BLOB_DEFS = [
+    { xR: 0.22, yR: 0.40, rR: 0.60, dxR:  0.00016, dyR:  0.00009, col: TEAL, alpha: 0.38 },
+    { xR: 0.75, yR: 0.62, rR: 0.50, dxR: -0.00011, dyR:  0.00013, col: MID,  alpha: 0.28 },
+    { xR: 0.50, yR: 0.12, rR: 0.42, dxR:  0.00008, dyR: -0.00010, col: TEAL, alpha: 0.20 },
+  ];
+
+  function makeBlobs(seed) {
+    return BLOB_DEFS.map(function (d, i) {
+      return {
+        x:  d.xR + (seed * 0.07 * (i + 1)) % 0.3,
+        y:  d.yR + (seed * 0.05 * (i + 1)) % 0.2,
+        r:  d.rR,
+        dx: d.dxR * (1 + seed * 0.2),
+        dy: d.dyR * (1 + seed * 0.15),
+        col: d.col,
+        alpha: d.alpha
+      };
+    });
+  }
+
+  function drawFrame(ctx, blobs, ts, bgColor) {
+    var w = ctx.canvas.width, h = ctx.canvas.height;
+
+    // Base fill
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = 'rgb(' + bgColor.r + ',' + bgColor.g + ',' + bgColor.b + ')';
+    ctx.fillRect(0, 0, w, h);
+
+    blobs.forEach(function (b, i) {
+      // Drift + bounce
+      b.x += b.dx;
+      b.y += b.dy;
+      if (b.x < 0.05 || b.x > 0.95) b.dx *= -1;
+      if (b.y < 0.05 || b.y > 0.95) b.dy *= -1;
+
+      var cx     = b.x * w;
+      var cy     = b.y * h;
+      var radius = b.r * Math.max(w, h);
+      var c      = b.col;
+      var angle  = ts * 0.000025 + i * 1.2;
+
+      var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+      g.addColorStop(0,   'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + b.alpha + ')');
+      g.addColorStop(0.45,'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + (b.alpha * 0.35) + ')');
+      g.addColorStop(1,   'rgba(0,0,0,0)');
+
+      ctx.save();
+      ctx.globalCompositeOperation = 'screen';
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, radius, radius * 0.55, angle, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    });
+
+    // Vignette — keeps edges dark, protects text readability
+    var v = ctx.createRadialGradient(w * 0.5, h * 0.5, 0, w * 0.5, h * 0.5, Math.max(w, h) * 0.78);
+    v.addColorStop(0,   'rgba(0,0,0,0)');
+    v.addColorStop(0.55,'rgba(' + bgColor.r + ',' + bgColor.g + ',' + bgColor.b + ',0.08)');
+    v.addColorStop(1,   'rgba(' + bgColor.r + ',' + bgColor.g + ',' + bgColor.b + ',0.80)');
+    ctx.fillStyle = v;
+    ctx.fillRect(0, 0, w, h);
+  }
+
+  function initCanvas(canvas, seed, bgColor) {
+    var ctx   = canvas.getContext('2d');
+    var blobs = makeBlobs(seed);
+
+    function resize() {
+      canvas.width  = canvas.offsetWidth  || canvas.parentElement.offsetWidth;
+      canvas.height = canvas.offsetHeight || canvas.parentElement.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    function tick(ts) {
+      drawFrame(ctx, blobs, ts, bgColor);
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // Hero canvas (bg-0 base)
+  var heroCanvas = document.getElementById('auroraCanvas');
+  if (heroCanvas) initCanvas(heroCanvas, 0, DARK);
+
+  // Section canvases (bg-1 base)
+  var sectionCanvases = document.querySelectorAll('.section-aurora');
+  sectionCanvases.forEach(function (c, i) {
+    initCanvas(c, i + 1, MID);
+  });
+})();
+
+
+// ── REST OF SITE JS ───────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
 
   // 0. AUTO YEAR
