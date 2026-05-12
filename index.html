@@ -40,11 +40,12 @@
       Cworks
     </a>
     <ul class="nav-links" role="list">
-      <li><a href="#about"    class="nav-link">About</a></li>
-      <li><a href="#projects" class="nav-link">Work</a></li>
-      <li><a href="#services" class="nav-link">Services</a></li>
-      <li><a href="#team"     class="nav-link">Team</a></li>
-      <li><a href="#contact"  class="nav-link">Contact</a></li>
+      <li><a href="#about"         class="nav-link">About</a></li>
+      <li><a href="#projects"      class="nav-link">Work</a></li>
+      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li><a href="#services"      class="nav-link">Services</a></li>
+      <li><a href="#team"          class="nav-link">Team</a></li>
+      <li><a href="#contact"       class="nav-link">Contact</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:10px;">
       <a href="#contact" class="btn-primary" style="padding:9px 20px;font-size:0.85rem;">Start a Project</a>
@@ -55,12 +56,13 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu" role="menu">
-  <a href="#about"    class="nav-link" role="menuitem">About</a>
-  <a href="#projects" class="nav-link" role="menuitem">Work</a>
-  <a href="#services" class="nav-link" role="menuitem">Services</a>
-  <a href="#team"     class="nav-link" role="menuitem">Team</a>
-  <a href="#contact"  class="nav-link" role="menuitem">Contact</a>
-  <a href="#contact"  class="btn-primary" style="margin-top:8px;justify-content:center;">Start a Project</a>
+  <a href="#about"         class="nav-link" role="menuitem">About</a>
+  <a href="#projects"      class="nav-link" role="menuitem">Work</a>
+  <a href="portfolio.html" class="nav-link" role="menuitem">Portfolio</a>
+  <a href="#services"      class="nav-link" role="menuitem">Services</a>
+  <a href="#team"          class="nav-link" role="menuitem">Team</a>
+  <a href="#contact"       class="nav-link" role="menuitem">Contact</a>
+  <a href="#contact"       class="btn-primary" style="margin-top:8px;justify-content:center;">Start a Project</a>
 </div>
 
 <!-- HERO -->
@@ -192,112 +194,124 @@
           Things we've<br/>built recently.
         </h2>
       </div>
-      <a href="#contact" class="btn-ghost reveal" style="flex-shrink:0;padding-bottom:6px;">
-        Start your project <i class="fa-solid fa-arrow-right fa-xs" aria-hidden="true"></i>
+      <a href="portfolio.html" class="btn-ghost reveal" style="flex-shrink:0;padding-bottom:6px;">
+        View full portfolio <i class="fa-solid fa-arrow-right fa-xs" aria-hidden="true"></i>
       </a>
     </div>
 
-    <div class="projects-grid">
+    <!-- Two-column layout: left = featured card + pride block, right = two smaller cards -->
+    <div class="projects-cols">
 
-      <!-- Large card -->
-      <div class="project-card project-card--large reveal reveal-delay-1">
-        <div class="project-mockup mock-1" aria-hidden="true">
-          <div class="mockup-ui">
-            <div class="m-bar teal"></div>
-            <div class="m-bar sm"></div>
-            <div class="m-row">
-              <div class="m-col narrow"></div>
-              <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
-                <div class="m-bar xs"></div>
-                <div class="m-highlight"></div>
-                <div class="m-bar"></div>
-                <div class="m-bar sm"></div>
+      <!-- LEFT COLUMN -->
+      <div class="projects-col">
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-mockup mock-1" style="height:340px;" aria-hidden="true">
+            <div class="mockup-ui">
+              <div class="m-bar teal"></div>
+              <div class="m-bar sm"></div>
+              <div class="m-row">
+                <div class="m-col narrow"></div>
+                <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+                  <div class="m-bar xs"></div>
+                  <div class="m-highlight"></div>
+                  <div class="m-bar"></div>
+                  <div class="m-bar sm"></div>
+                </div>
+              </div>
+              <div class="m-row">
+                <div class="m-col"></div>
+                <div class="m-col"></div>
+                <div class="m-col"></div>
               </div>
             </div>
-            <div class="m-row">
-              <div class="m-col"></div>
-              <div class="m-col"></div>
-              <div class="m-col"></div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">Website + Branding</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-name">Nile Ventures</h3>
+            <p class="project-desc">Full-stack website and brand identity for an early-stage investment firm. Custom CMS, investor portal, and a design system built from scratch.</p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">PHP</span>
+              <span class="tag">MySQL</span>
             </div>
           </div>
         </div>
-        <div class="project-body">
-          <div class="project-meta">
-            <span class="project-type">Website + Branding</span>
-            <span class="project-year">2026</span>
+
+        <!-- PRIDE BLOCK -->
+        <div class="project-pride reveal reveal-delay-2">
+          <p>Every project we ship reflects the same standard — clean code, intentional design, and results that hold up over time. We take pride in work that's built right and built to last, not just delivered fast.</p>
+          <a href="portfolio.html" class="btn-primary" style="align-self:flex-start;">
+            <i class="fa-solid fa-briefcase" aria-hidden="true"></i> View Full Portfolio
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="projects-col">
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-mockup mock-2" aria-hidden="true">
+            <div class="mockup-ui">
+              <div class="m-bar green"></div>
+              <div class="m-bar sm"></div>
+              <div class="m-row">
+                <div class="m-col"></div>
+                <div class="m-col"></div>
+              </div>
+            </div>
           </div>
-          <h3 class="project-name">Nile Ventures</h3>
-          <p class="project-desc">Full-stack website and brand identity for an early-stage investment firm. Custom CMS, investor portal, and a design system built from scratch.</p>
-          <div class="project-tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">PHP</span>
-            <span class="tag">MySQL</span>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">System</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-name">StockFlow POS</h3>
+            <p class="project-desc">Inventory and point-of-sale system for a multi-location retail business. Real-time stock sync and daily sales reports.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">PHP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-3">
+          <div class="project-mockup mock-3" aria-hidden="true">
+            <div class="mockup-ui">
+              <div class="m-bar purp"></div>
+              <div class="m-bar sm"></div>
+              <div class="m-row">
+                <div class="m-col"></div>
+                <div class="m-col narrow"></div>
+              </div>
+              <div class="m-row">
+                <div class="m-col"></div>
+                <div class="m-col"></div>
+                <div class="m-col"></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">UI / UX Design</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-name">Pendo Health App</h3>
+            <p class="project-desc">End-to-end UX design for a patient-facing mobile health app. Wireframes, high-fidelity screens, and a full Figma handover.</p>
+            <div class="project-tags">
+              <span class="tag">Figma</span>
+              <span class="tag">Prototyping</span>
+              <span class="tag">UX Research</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Right column top -->
-      <div class="project-card reveal reveal-delay-2">
-        <div class="project-mockup mock-2" aria-hidden="true">
-          <div class="mockup-ui">
-            <div class="m-bar green"></div>
-            <div class="m-bar sm"></div>
-            <div class="m-row">
-              <div class="m-col"></div>
-              <div class="m-col"></div>
-            </div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-meta">
-            <span class="project-type">System</span>
-            <span class="project-year">2026</span>
-          </div>
-          <h3 class="project-name">StockFlow POS</h3>
-          <p class="project-desc">Inventory and point-of-sale system for a multi-location retail business. Real-time stock sync and daily sales reports.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">PHP</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right column bottom -->
-      <div class="project-card reveal reveal-delay-3">
-        <div class="project-mockup mock-3" aria-hidden="true">
-          <div class="mockup-ui">
-            <div class="m-bar purp"></div>
-            <div class="m-bar sm"></div>
-            <div class="m-row">
-              <div class="m-col"></div>
-              <div class="m-col narrow"></div>
-            </div>
-            <div class="m-row">
-              <div class="m-col"></div>
-              <div class="m-col"></div>
-              <div class="m-col"></div>
-            </div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-meta">
-            <span class="project-type">UI / UX Design</span>
-            <span class="project-year">2026</span>
-          </div>
-          <h3 class="project-name">Pendo Health App</h3>
-          <p class="project-desc">End-to-end UX design for a patient-facing mobile health app. Wireframes, high-fidelity screens, and a full Figma handover.</p>
-          <div class="project-tags">
-            <span class="tag">Figma</span>
-            <span class="tag">Prototyping</span>
-            <span class="tag">UX Research</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    </div><!-- /.projects-cols -->
   </div>
 </section>
 
@@ -648,11 +662,12 @@
       </div>
       <nav aria-label="Footer navigation">
         <div class="footer-nav">
-          <a href="#about"    class="footer-link">About</a>
-          <a href="#projects" class="footer-link">Work</a>
-          <a href="#services" class="footer-link">Services</a>
-          <a href="#team"     class="footer-link">Team</a>
-          <a href="#contact"  class="footer-link">Contact</a>
+          <a href="#about"         class="footer-link">About</a>
+          <a href="#projects"      class="footer-link">Work</a>
+          <a href="portfolio.html" class="footer-link">Portfolio</a>
+          <a href="#services"      class="footer-link">Services</a>
+          <a href="#team"          class="footer-link">Team</a>
+          <a href="#contact"       class="footer-link">Contact</a>
         </div>
       </nav>
     </div>
