@@ -141,14 +141,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 3. TYPING ANIMATION (service pages only)
   const typingPhraseMap = {
-    'ui-ux-design.html':        'Beautiful and functional.',
-    'web-development.html':     'From idea to live website.',
-    'graphic-design.html':      'Your brand, defined.',
-    'database-management.html': 'Structured. Fast. Reliable.',
-    'system-building.html':     'Built exactly for your business.'
+    'ui-ux-design':        'Beautiful and functional.',
+    'web-development':     'From idea to live website.',
+    'graphic-design':      'Your brand, defined.',
+    'database-management': 'Structured. Fast. Reliable.',
+    'system-building':     'Built exactly for your business.'
   };
 
-  const currentPage  = window.location.pathname.split('/').pop();
+  const path = window.location.pathname;
+  const currentPage = path.split('/').pop().replace('.html', '');
   const typingPhrase = window._typingOverride || typingPhraseMap[currentPage];
   const typingTarget = document.getElementById('typing-text');
 
