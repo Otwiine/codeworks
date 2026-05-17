@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function () {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             username:   'Cworks Website',
-            avatar_url: 'https://the-runner-team.github.io/website/CodeHub.png',
+            avatar_url: 'https://the-runner-team.github.io/website/favicon.png',
             embeds: [{
               title:  '📬 New Contact Form Submission',
               color:  0x0d9488,

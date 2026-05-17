@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@800;900&display=swap');
+
 /* ============================================================
    Cworks — Design System v3
    Fonts: Syne (display) · Plus Jakarta Sans (body) · JetBrains Mono
@@ -92,15 +94,23 @@ body::before {
 }
 .nav-inner { display:flex; align-items:center; justify-content:space-between; height:68px; }
 .nav-logo {
-  display:flex; align-items:center; gap:10px;
-  font-family:'Syne',sans-serif; font-weight:800; font-size:1.25rem;
-  letter-spacing:-0.04em; color:var(--text-1);
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+  transition: color var(--t) var(--ease), text-shadow var(--t) var(--ease);
 }
-.nav-logo-mark {
-  width:32px; height:32px; border-radius:8px;
-  overflow:hidden; border:1px solid var(--teal-border); flex-shrink:0;
+.nav-logo::after {
+  content: '.';
+  color: var(--teal);
 }
-.nav-logo-mark img { width:100%; height:100%; object-fit:cover; }
+.nav-logo:hover {
+  color: var(--teal);
+  text-shadow: 0 0 15px rgba(45, 212, 191, 0.35);
+}
 .nav-links { display:flex; align-items:center; gap:2px; }
 .nav-link {
   padding:6px 14px; font-size:0.875rem; font-weight:500;
@@ -295,6 +305,34 @@ body::before {
 
 /* ── VALUE PROPS ────────────────────────────────────────── */
 .value-section { background:var(--bg-0); }
+.purpose-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:24px; margin-top:40px; margin-bottom:48px;
+}
+.purpose-card {
+  background:var(--bg-1); border:1px solid var(--border);
+  border-radius:var(--radius-xl); padding:32px;
+  position:relative; overflow:hidden; transition:all var(--t) var(--ease);
+}
+.purpose-card:hover {
+  background:var(--bg-card); border-color:var(--teal-border);
+  box-shadow:0 10px 30px -10px rgba(45, 212, 191, 0.05);
+}
+.purpose-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,var(--teal-dark),var(--teal));
+  transform:scaleX(0); transform-origin:left; transition:transform 0.5s var(--ease);
+}
+.purpose-card:hover::before { transform:scaleX(1); }
+.purpose-badge {
+  font-family:'Syne',sans-serif; font-size:0.68rem; font-weight:700;
+  text-transform:uppercase; color:var(--teal); letter-spacing:0.1em;
+  background:var(--teal-dim); border:1px solid var(--teal-border);
+  padding:4px 12px; border-radius:100px; display:inline-block; margin-bottom:20px;
+}
+.purpose-text {
+  font-size:1.05rem; color:var(--text-1); line-height:1.65; font-weight:500;
+}
 .value-grid {
   display:grid; grid-template-columns:repeat(3,1fr);
   gap:2px; background:var(--border);
@@ -641,9 +679,24 @@ details[open] .faq-icon { transform:rotate(180deg); }
 /* ── FOOTER ─────────────────────────────────────────────── */
 .footer { background:var(--bg-0); border-top:1px solid var(--border); padding:48px 0 28px; }
 .footer-inner { display:flex; justify-content:space-between; align-items:flex-start; gap:40px; margin-bottom:32px; }
-.footer-logo-wrap { display:flex; align-items:center; gap:10px; font-family:'Syne',sans-serif; font-weight:800; font-size:1.15rem; letter-spacing:-0.04em; color:var(--text-1); margin-bottom:8px; }
-.footer-logo-icon { width:28px; height:28px; border-radius:6px; overflow:hidden; border:1px solid var(--teal-border); flex-shrink:0; }
-.footer-logo-icon img { width:100%; height:100%; object-fit:cover; }
+.footer-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+  margin-bottom: 8px;
+  transition: color var(--t) var(--ease);
+}
+.footer-logo-wrap::after {
+  content: '.';
+  color: var(--teal);
+}
+.footer-logo-wrap:hover {
+  color: var(--teal);
+}
 .footer-tagline { font-size:0.82rem; color:var(--text-3); }
 .footer-nav { display:flex; flex-direction:row; flex-wrap:wrap; gap:4px 20px; align-items:center; }
 .footer-link { font-size:0.875rem; color:var(--text-3); transition:color var(--t); }
@@ -695,6 +748,8 @@ details[open] .faq-icon { transform:rotate(180deg); }
 }
 
 @media (max-width:768px) {
+  .purpose-grid { grid-template-columns:1fr; gap:16px; margin-bottom:40px; }
+  .purpose-card { padding:24px; }
   .section { padding:80px 0; }
   .hero-content { padding:120px 0 80px; }
   .nav-links { display:none; }
