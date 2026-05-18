@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — Cworks</title>
+
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="apple-touch-icon" href="favicon.png"/>
+
+  <meta name="description" content="Browse Cworks' portfolio of websites, UI/UX designs, graphic design projects, and custom business systems built for clients."/>
+  <meta name="keywords" content="Cworks portfolio web design projects Uganda developer agency"/>
+  <meta name="author" content="Cworks — The Runner Team"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="theme-color" content="#415a77"/>
+  <link rel="canonical" href="https://the-runner-team.github.io/website/portfolio"/>
+
+  <meta property="og:title" content="Portfolio — Cworks"/>
+  <meta property="og:description" content="A growing collection of websites, systems, and designs we've built for real clients."/>
+  <meta property="og:url" content="https://the-runner-team.github.io/website/portfolio"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Cworks"/>
+  <meta property="og:image" content="https://the-runner-team.github.io/website/favicon.png"/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Portfolio | Cworks"/>
+  <meta name="twitter:image" content="https://the-runner-team.github.io/website/favicon.png"/>
+  <meta name="twitter:site" content="@cworks26"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="./" class="nav-logo" aria-label="Cworks home">Cworks</a>
+      <ul class="nav-links" role="list">
+        <li><a href="./#about"    class="nav-link">About</a></li>
+        <li><a href="./#projects" class="nav-link">Work</a></li>
+        <li><a href="portfolio.html"      class="nav-link active">Portfolio</a></li>
+        <li><a href="./#services" class="nav-link">Services</a></li>
+        <li><a href="./#team"     class="nav-link">Team</a></li>
+        <li><a href="./#contact"  class="nav-link">Contact</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <a href="./#contact" class="btn-primary" style="padding:9px 20px;font-size:0.85rem;">Start a Project</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" role="menu">
+    <a href="./#about"    class="nav-link" role="menuitem">About</a>
+    <a href="./#projects" class="nav-link" role="menuitem">Work</a>
+    <a href="portfolio.html"      class="nav-link" role="menuitem">Portfolio</a>
+    <a href="./#services" class="nav-link" role="menuitem">Services</a>
+    <a href="./#team"     class="nav-link" role="menuitem">Team</a>
+    <a href="./#contact"  class="nav-link" role="menuitem">Contact</a>
+    <a href="./#contact"  class="btn-primary" style="margin-top:8px;justify-content:center;">Start a Project</a>
+  </div>
+
+
+  <!-- HERO -->
+  <section class="hero" id="hero" aria-label="Portfolio">
+    <canvas class="aurora-canvas" id="auroraCanvas" aria-hidden="true"></canvas>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge" aria-hidden="true">
+          <span class="hero-badge-dot"></span>
+          <span class="font-code">// our work</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="gradient-text">Our</span> Portfolio
+        </h1>
+        <p class="hero-subtitle">
+          <span id="typing-text"></span><span class="typing-cursor" aria-hidden="true">|</span>
+        </p>
+        <p class="hero-description">
+          A growing collection of websites, systems, and designs built for real clients. Every project here represents a problem solved and a standard held.
+        </p>
+        <div class="hero-cta">
+          <a href="./#contact" class="btn-primary"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Start a Project</a>
+          <a href="./#services" class="btn-secondary"><i class="fa-solid fa-list" aria-hidden="true"></i> Our Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PORTFOLIO GRID -->
+  <section class="section about" id="work" aria-label="Portfolio projects">
+    <canvas class="aurora-canvas section-aurora" aria-hidden="true"></canvas>
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-label">// all projects</span>
+        <h2 class="section-title">Work We're<br/><span class="gradient-text">Proud Of</span></h2>
+        <p class="section-description">From single-page sites to full custom systems — everything built to last.</p>
+        <span class="accent-line" aria-hidden="true"></span>
+      </div>
+
+      <!-- FILTER TAGS -->
+      <div class="portfolio-filters reveal">
+        <span class="portfolio-filter active" data-filter="all">All</span>
+        <span class="portfolio-filter" data-filter="websites">Websites</span>
+        <span class="portfolio-filter" data-filter="ui-ux">UI / UX</span>
+        <span class="portfolio-filter" data-filter="systems">Systems</span>
+        <span class="portfolio-filter" data-filter="graphic-design">Graphic Design</span>
+        <span class="portfolio-filter" data-filter="databases">Databases</span>
+      </div>
+
+      <!-- PROJECT CARDS -->
+      <div class="portfolio-grid" id="portfolioGrid">
+
+        <!-- 1 — NILE VENTURES (real) -->
+        <div class="portfolio-card reveal reveal-delay-1" data-category="websites">
+          <div class="portfolio-mockup mock-1" aria-hidden="true">
+            <div class="mockup-ui">
+              <div class="m-bar teal"></div>
+              <div class="m-bar sm"></div>
+              <div class="m-row">
+                <div class="m-col narrow"></div>
+                <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+                  <div class="m-highlight"></div>
+                  <div class="m-bar sm"></div>
+                </div>
+              </div>
+              <div class="m-row">
+                <div class="m-col"></div><div class="m-col"></div><div class="m-col"></div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div class="project-meta">
+              <span class="project-type">Website + Branding</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-name">Nile Ventures</h3>
+            <p class="project-desc">Full-stack website and brand identity for an early-stage investment firm. Custom CMS, investor portal, and a design system built from scratch.</p>
+            <div class="project-tags">
+              <span class="tag">HTML</span><span class="tag">CSS</span>
+              <span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">MySQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 — STOCKFLOW POS (real) -->
+        <div class="portfolio-card reveal reveal-delay-2" data-category="systems">
+          <div class="portfolio-mockup mock-2" aria-hidden="true">
+            <div class="mockup-ui">
+              <div class="m-bar green"></div>
+              <div class="m-bar sm"></div>
+              <div class="m-row">
+                <div class="m-col"></div><div class="m-col"></div>
+              </div>
+              <div class="m-row">
+                <div class="m-col"></div><div class="m-col"></div><div class="m-col"></div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div class="project-meta">
+              <span class="project-type">System</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-name">StockFlow POS</h3>
+            <p class="project-desc">Inventory and point-of-sale system for a multi-location retail business. Real-time stock sync, staff roles, and daily sales reports.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">PHP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 — PENDO HEALTH (real) -->
+        <div class="portfolio-card reveal reveal-delay-3" data-category="ui-ux">
+          <div class="portfolio-mockup mock-3" aria-hidden="true">
+            <div class="mockup-ui">
+              <div class="m-bar purp"></div>
+              <div class="m-bar sm"></div>
+              <div class="m-row">
+                <div class="m-col"></div><div class="m-col narrow"></div>
+              </div>
+              <div class="m-row">
+                <div class="m-col"></div><div class="m-col"></div><div class="m-col"></div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div class="project-meta">
+              <span class="project-type">UI / UX Design</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-name">Pendo Health App</h3>
+            <p class="project-desc">End-to-end UX design for a patient-facing mobile health app. Wireframes, high-fidelity screens, and a complete Figma handover.</p>
+            <div class="project-tags">
+              <span class="tag">Figma</span><span class="tag">Prototyping</span><span class="tag">UX Research</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 — KAMPALA EATS (placeholder) -->
+        <div class="portfolio-card portfolio-card--placeholder reveal reveal-delay-1" data-category="websites">
+          <div class="portfolio-mockup mock-placeholder" aria-hidden="true">
+            <div class="mock-placeholder-icon"><i class="fa-solid fa-utensils"></i></div>
+            <div class="mock-placeholder-label">Coming Soon</div>
+          </div>
+          <div class="portfolio-body">
+            <div class="project-meta">
+              <span class="project-type">Website</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-name">Kampala Eats</h3>
+            <p class="project-desc">Restaurant and food delivery website with online ordering, table booking, and a menu management dashboard for the owner.</p>
+            <div class="project-tags">
+              <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">PHP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 — EDUTRACK (placeholder) -->
+        <div class="portfolio-card portfolio-card--placeholder reveal reveal-delay-2" data-category="systems">
+          <div class="portfolio-mockup mock-placeholder" aria-hidden="true">
+            <div class="mock-placeholder-icon"><i class="fa-solid fa-school"></i></div>
+            <div class="mock-placeholder-label">Coming Soon</div>
+          </div>
+          <div class="portfolio-body">
+            <div class="project-meta">
+              <span class="project-type">System</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-name">EduTrack</h3>
+            <p class="project-desc">School management system covering student records, fees, timetables, and parent communication — built for a private secondary school.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">PHP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 — SAVANNA CREATIVE (placeholder) -->
+        <div class="portfolio-card portfolio-card--placeholder reveal reveal-delay-3" data-category="graphic-design">
+          <div class="portfolio-mockup mock-placeholder" aria-hidden="true">
+            <div class="mock-placeholder-icon"><i class="fa-solid fa-pen-nib"></i></div>
+            <div class="mock-placeholder-label">Coming Soon</div>
+          </div>
+          <div class="portfolio-body">
+            <div class="project-meta">
+              <span class="project-type">Graphic Design</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-name">Savanna Creative</h3>
+            <p class="project-desc">Full brand identity for a Ugandan creative agency — logo suite, colour system, typography guide, and a complete social media kit.</p>
+            <div class="project-tags">
+              <span class="tag">Logo Design</span><span class="tag">Brand Identity</span><span class="tag">Figma</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 — BUILDRIGHT (placeholder) -->
+        <div class="portfolio-card portfolio-card--placeholder reveal reveal-delay-1" data-category="websites">
+          <div class="portfolio-mockup mock-placeholder" aria-hidden="true">
+            <div class="mock-placeholder-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+            <div class="mock-placeholder-label">Coming Soon</div>
+          </div>
+          <div class="portfolio-body">
+            <div class="project-meta">
+              <span class="project-type">Website</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-name">BuildRight Construction</h3>
+            <p class="project-desc">Professional services website for a construction firm — project gallery, quote request form, and a mobile-first layout optimised for clients in the field.</p>
+            <div class="project-tags">
+              <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 — PAYFLOW (placeholder) -->
+        <div class="portfolio-card portfolio-card--placeholder reveal reveal-delay-2" data-category="systems">
+          <div class="portfolio-mockup mock-placeholder" aria-hidden="true">
+            <div class="mock-placeholder-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+            <div class="mock-placeholder-label">Coming Soon</div>
+          </div>
+          <div class="portfolio-body">
+            <div class="project-meta">
+              <span class="project-type">System</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-name">PayFlow Payroll</h3>
+            <p class="project-desc">Payroll and HR management system for a mid-size business — employee records, automatic payslip generation, and NSSF calculation built in.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">PHP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9 — PEARL DATABASE (placeholder) -->
+        <div class="portfolio-card portfolio-card--placeholder reveal reveal-delay-3" data-category="databases">
+          <div class="portfolio-mockup mock-placeholder" aria-hidden="true">
+            <div class="mock-placeholder-icon"><i class="fa-solid fa-database"></i></div>
+            <div class="mock-placeholder-label">Coming Soon</div>
+          </div>
+          <div class="portfolio-body">
+            <div class="project-meta">
+              <span class="project-type">Database</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-name">Pearl Logistics DB</h3>
+            <p class="project-desc">Multi-table relational database for a logistics company — shipment tracking, client records, driver management, and automated reporting queries.</p>
+            <div class="project-tags">
+              <span class="tag">MySQL</span><span class="tag">Schema Design</span><span class="tag">Python</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.portfolio-grid -->
+
+      <p class="pricing-notes" style="margin-top:40px;">
+        Placeholders represent upcoming case studies currently in documentation · <a href="./#contact" style="color:var(--teal);">Reach out to discuss your project</a>
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="section projects has-grid" aria-label="Start a project">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="eyebrow reveal" style="justify-content:center;">
+          <span class="label">// work with us</span>
+        </div>
+        <h2 class="cta-headline reveal">
+          Your project<br/>belongs <span class="teal">here.</span>
+        </h2>
+        <p class="cta-sub reveal">
+          Every project on this page started with a conversation. Tell us what you're building and we'll figure out how to make it happen.
+        </p>
+        <div class="cta-buttons reveal">
+          <a href="./#contact" class="btn-primary">
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Start a Project
+          </a>
+          <a href="https://wa.me/256788368997" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo-wrap">Cworks</div>
+        <p class="footer-tagline">Building digital products that work.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <div class="footer-nav">
+          <a href="./#about"    class="footer-link">About</a>
+          <a href="./#projects" class="footer-link">Work</a>
+          <a href="portfolio.html"      class="footer-link">Portfolio</a>
+          <a href="./#services" class="footer-link">Services</a>
+          <a href="./#team"     class="footer-link">Team</a>
+          <a href="#contact"            class="footer-link">Contact</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© <span class="footer-year"></span> Cworks &nbsp;·&nbsp; <a href="./" style="color:var(--teal);">← Back to Cworks</a></p>
+      <div class="footer-socials-upgraded">
+        <a href="https://www.instagram.com/cworks26/" class="footer-social-pill footer-social-pill--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram
+        </a>
+        <a href="https://www.linkedin.com/company/cworks26/" class="footer-social-pill footer-social-pill--linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    // Set typing phrase for this page before script.js runs
+    window._typingOverride = 'Built with care. Shipped with pride.';
+
+    // Portfolio filter logic
+    (function () {
+      var filters  = document.querySelectorAll('.portfolio-filter');
+      var cards    = document.querySelectorAll('#portfolioGrid .portfolio-card');
+
+      filters.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          // Update active state
+          filters.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+
+          var selected = btn.getAttribute('data-filter');
+
+          cards.forEach(function (card) {
+            if (selected === 'all' || card.getAttribute('data-category') === selected) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>
