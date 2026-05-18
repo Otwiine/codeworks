@@ -198,6 +198,32 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { threshold: 0.4 });
   sections.forEach(function (s) { secObs.observe(s); });
 
+  // 6. TEAM CARD SPOTLIGHT & 3D TILT EFFECT
+  const teamCards = document.querySelectorAll('.team-card');
+  teamCards.forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', x + 'px');
+      card.style.setProperty('--mouse-y', y + 'px');
+
+      // 3D Tilt calculation
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -10; // max 10deg tilt
+      const rotateY = ((x - centerX) / centerX) * 10;  // max 10deg tilt
+
+      card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-6px)';
+    });
+
+    card.addEventListener('mouseleave', function () {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+      card.style.removeProperty('--mouse-x');
+      card.style.removeProperty('--mouse-y');
+    });
+  });
+
 }); // end DOMContentLoaded
 
 // ── CONTACT FORM ─────────────────────────────────────────────
