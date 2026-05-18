@@ -36,14 +36,13 @@
 
 <body>
 
-  <!-- NAV -->
+  <!-- NAVBAR -->
   <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="./" class="nav-logo" aria-label="Cworks home">Cworks</a>
       <ul class="nav-links" role="list">
         <li><a href="./#about"    class="nav-link">About</a></li>
         <li><a href="./#projects" class="nav-link">Work</a></li>
-        <li><a href="portfolio.html"      class="nav-link active">Portfolio</a></li>
         <li><a href="./#services" class="nav-link">Services</a></li>
         <li><a href="./#team"     class="nav-link">Team</a></li>
         <li><a href="./#contact"  class="nav-link">Contact</a></li>
@@ -59,7 +58,6 @@
   <div class="mobile-menu" id="mobileMenu" role="menu">
     <a href="./#about"    class="nav-link" role="menuitem">About</a>
     <a href="./#projects" class="nav-link" role="menuitem">Work</a>
-    <a href="portfolio.html"      class="nav-link" role="menuitem">Portfolio</a>
     <a href="./#services" class="nav-link" role="menuitem">Services</a>
     <a href="./#team"     class="nav-link" role="menuitem">Team</a>
     <a href="./#contact"  class="nav-link" role="menuitem">Contact</a>
@@ -111,9 +109,6 @@
         <span class="portfolio-filter active" data-filter="all">All</span>
         <span class="portfolio-filter" data-filter="websites">Websites</span>
         <span class="portfolio-filter" data-filter="ui-ux">UI / UX</span>
-        <span class="portfolio-filter" data-filter="systems">Systems</span>
-        <span class="portfolio-filter" data-filter="graphic-design">Graphic Design</span>
-        <span class="portfolio-filter" data-filter="databases">Databases</span>
       </div>
 
       <!-- PROJECT CARDS -->
@@ -151,35 +146,8 @@
           </div>
         </div>
 
-        <!-- 2 — STOCKFLOW POS (real) -->
-        <div class="portfolio-card reveal reveal-delay-2" data-category="systems">
-          <div class="portfolio-mockup mock-2" aria-hidden="true">
-            <div class="mockup-ui">
-              <div class="m-bar green"></div>
-              <div class="m-bar sm"></div>
-              <div class="m-row">
-                <div class="m-col"></div><div class="m-col"></div>
-              </div>
-              <div class="m-row">
-                <div class="m-col"></div><div class="m-col"></div><div class="m-col"></div>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-body">
-            <div class="project-meta">
-              <span class="project-type">System</span>
-              <span class="project-year">2026</span>
-            </div>
-            <h3 class="project-name">StockFlow POS</h3>
-            <p class="project-desc">Inventory and point-of-sale system for a multi-location retail business. Real-time stock sync, staff roles, and daily sales reports.</p>
-            <div class="project-tags">
-              <span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">PHP</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3 — PENDO HEALTH (real) -->
-        <div class="portfolio-card reveal reveal-delay-3" data-category="ui-ux">
+        <!-- 2 — PENDO HEALTH (real) -->
+        <div class="portfolio-card reveal reveal-delay-2" data-category="ui-ux">
           <div class="portfolio-mockup mock-3" aria-hidden="true">
             <div class="mockup-ui">
               <div class="m-bar purp"></div>
@@ -205,11 +173,22 @@
           </div>
         </div>
 
-        <!-- 4 — KAMPALA EATS (placeholder) -->
-        <div class="portfolio-card portfolio-card--placeholder reveal reveal-delay-1" data-category="websites">
-          <div class="portfolio-mockup mock-placeholder" aria-hidden="true">
-            <div class="mock-placeholder-icon"><i class="fa-solid fa-utensils"></i></div>
-            <div class="mock-placeholder-label">Coming Soon</div>
+        <!-- 3 — KAMPALA EATS (real) -->
+        <div class="portfolio-card reveal reveal-delay-3" data-category="websites">
+          <div class="portfolio-mockup mock-2" aria-hidden="true">
+            <div class="mockup-ui">
+              <div class="m-bar green"></div>
+              <div class="m-bar sm"></div>
+              <div class="m-row">
+                <div class="m-col"></div>
+                <div class="m-col"></div>
+              </div>
+              <div class="m-row">
+                <div class="m-col"></div>
+                <div class="m-col"></div>
+                <div class="m-col"></div>
+              </div>
+            </div>
           </div>
           <div class="portfolio-body">
             <div class="project-meta">
@@ -217,52 +196,14 @@
               <span class="project-year">2026</span>
             </div>
             <h3 class="project-name">Kampala Eats</h3>
-            <p class="project-desc">Restaurant and food delivery website with online ordering, table booking, and a menu management dashboard for the owner.</p>
+            <p class="project-desc">E-commerce website and online ordering platform for a premium restaurant aggregator. Interactive menus, real-time cart, and chef dashboard.</p>
             <div class="project-tags">
               <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">PHP</span>
             </div>
           </div>
         </div>
 
-        <!-- 5 — EDUTRACK (placeholder) -->
-        <div class="portfolio-card portfolio-card--placeholder reveal reveal-delay-2" data-category="systems">
-          <div class="portfolio-mockup mock-placeholder" aria-hidden="true">
-            <div class="mock-placeholder-icon"><i class="fa-solid fa-school"></i></div>
-            <div class="mock-placeholder-label">Coming Soon</div>
-          </div>
-          <div class="portfolio-body">
-            <div class="project-meta">
-              <span class="project-type">System</span>
-              <span class="project-year">2026</span>
-            </div>
-            <h3 class="project-name">EduTrack</h3>
-            <p class="project-desc">School management system covering student records, fees, timetables, and parent communication — built for a private secondary school.</p>
-            <div class="project-tags">
-              <span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">PHP</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6 — SAVANNA CREATIVE (placeholder) -->
-        <div class="portfolio-card portfolio-card--placeholder reveal reveal-delay-3" data-category="graphic-design">
-          <div class="portfolio-mockup mock-placeholder" aria-hidden="true">
-            <div class="mock-placeholder-icon"><i class="fa-solid fa-pen-nib"></i></div>
-            <div class="mock-placeholder-label">Coming Soon</div>
-          </div>
-          <div class="portfolio-body">
-            <div class="project-meta">
-              <span class="project-type">Graphic Design</span>
-              <span class="project-year">2026</span>
-            </div>
-            <h3 class="project-name">Savanna Creative</h3>
-            <p class="project-desc">Full brand identity for a Ugandan creative agency — logo suite, colour system, typography guide, and a complete social media kit.</p>
-            <div class="project-tags">
-              <span class="tag">Logo Design</span><span class="tag">Brand Identity</span><span class="tag">Figma</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 7 — BUILDRIGHT (placeholder) -->
+        <!-- 4 — BUILDRIGHT (placeholder) -->
         <div class="portfolio-card portfolio-card--placeholder reveal reveal-delay-1" data-category="websites">
           <div class="portfolio-mockup mock-placeholder" aria-hidden="true">
             <div class="mock-placeholder-icon"><i class="fa-solid fa-helmet-safety"></i></div>
@@ -277,44 +218,6 @@
             <p class="project-desc">Professional services website for a construction firm — project gallery, quote request form, and a mobile-first layout optimised for clients in the field.</p>
             <div class="project-tags">
               <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 8 — PAYFLOW (placeholder) -->
-        <div class="portfolio-card portfolio-card--placeholder reveal reveal-delay-2" data-category="systems">
-          <div class="portfolio-mockup mock-placeholder" aria-hidden="true">
-            <div class="mock-placeholder-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
-            <div class="mock-placeholder-label">Coming Soon</div>
-          </div>
-          <div class="portfolio-body">
-            <div class="project-meta">
-              <span class="project-type">System</span>
-              <span class="project-year">2026</span>
-            </div>
-            <h3 class="project-name">PayFlow Payroll</h3>
-            <p class="project-desc">Payroll and HR management system for a mid-size business — employee records, automatic payslip generation, and NSSF calculation built in.</p>
-            <div class="project-tags">
-              <span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">PHP</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 9 — PEARL DATABASE (placeholder) -->
-        <div class="portfolio-card portfolio-card--placeholder reveal reveal-delay-3" data-category="databases">
-          <div class="portfolio-mockup mock-placeholder" aria-hidden="true">
-            <div class="mock-placeholder-icon"><i class="fa-solid fa-database"></i></div>
-            <div class="mock-placeholder-label">Coming Soon</div>
-          </div>
-          <div class="portfolio-body">
-            <div class="project-meta">
-              <span class="project-type">Database</span>
-              <span class="project-year">2026</span>
-            </div>
-            <h3 class="project-name">Pearl Logistics DB</h3>
-            <p class="project-desc">Multi-table relational database for a logistics company — shipment tracking, client records, driver management, and automated reporting queries.</p>
-            <div class="project-tags">
-              <span class="tag">MySQL</span><span class="tag">Schema Design</span><span class="tag">Python</span>
             </div>
           </div>
         </div>

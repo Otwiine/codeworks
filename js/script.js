@@ -358,3 +358,54 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 })();
+
+// ── FLOATING WHATSAPP BUTTON WITH DYNAMIC SCROLL REACTION ───
+(function () {
+  const waLink = "https://wa.me/256788368997";
+  const btn = document.createElement('a');
+  btn.href = waLink;
+  btn.target = "_blank";
+  btn.rel = "noopener noreferrer";
+  btn.className = "whatsapp-float";
+  btn.id = "whatsappFloatingBtn";
+  btn.setAttribute("aria-label", "Chat on WhatsApp");
+  btn.innerHTML = '<i class="fa-brands fa-whatsapp"></i>';
+  document.body.appendChild(btn);
+
+  // Dynamic floating scroll reactive effect
+  let lastScrollY = window.scrollY;
+  let targetY = 0;
+  let currentY = 0;
+  let scrollTimeout;
+
+  window.addEventListener('scroll', function () {
+    const currentScrollY = window.scrollY;
+    const diff = currentScrollY - lastScrollY;
+    
+    // Dynamic physical displacement: clamping scrolling shift
+    // scrolling down (diff > 0) pulls the float slightly downwards
+    // scrolling up (diff < 0) pushes it slightly upwards
+    targetY = Math.max(-16, Math.min(16, diff * 0.4));
+    lastScrollY = currentScrollY;
+
+    // Reset target back to 0 (springing back) when scroll stops
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(function () {
+      targetY = 0;
+    }, 100);
+  }, { passive: true });
+
+  // Smooth Lerp animation loop for physical floating feel + gentle idle bobbing
+  function updateFloat() {
+    // Lerp logic: currentY moves towards targetY by 10% each frame
+    currentY += (targetY - currentY) * 0.1;
+    
+    // Idle bobbing using a smooth sine wave based on timestamp
+    const autoBob = Math.sin(Date.now() * 0.0025) * 3.5;
+    
+    // We combine the scroll reaction shift with the gentle idle bob
+    btn.style.transform = 'translateY(' + (currentY + autoBob) + 'px)';
+    requestAnimationFrame(updateFloat);
+  }
+  requestAnimationFrame(updateFloat);
+})();
